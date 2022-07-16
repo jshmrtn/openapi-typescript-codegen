@@ -51,6 +51,7 @@ import nodeSendRequest from '../templates/core/node/sendRequest.hbs';
 import templateCoreSettings from '../templates/core/OpenAPI.hbs';
 import templateCoreRequest from '../templates/core/request.hbs';
 import templateCoreTypes from '../templates/core/types.hbs';
+import omitReadonly from '../templates/core/utils/OmitReadonly.hbs';
 import xhrGetHeaders from '../templates/core/xhr/getHeaders.hbs';
 import xhrGetRequestBody from '../templates/core/xhr/getRequestBody.hbs';
 import xhrGetResponseBody from '../templates/core/xhr/getResponseBody.hbs';
@@ -90,6 +91,7 @@ import partialTypeInterface from '../templates/partials/typeInterface.hbs';
 import partialTypeIntersection from '../templates/partials/typeIntersection.hbs';
 import partialTypeReference from '../templates/partials/typeReference.hbs';
 import partialTypeUnion from '../templates/partials/typeUnion.hbs';
+import typeWithOmitReadOnly from '../templates/partials/typeWithOmitReadOnly.hbs';
 import type { Config, UserConfig } from '../types/config';
 import { enumKey, enumName, enumUnionType, enumValue } from './enum';
 import { escapeName } from './escapeName';
@@ -290,6 +292,9 @@ export interface Templates {
         request: Handlebars.TemplateDelegate;
         settings: Handlebars.TemplateDelegate;
         types: Handlebars.TemplateDelegate;
+        utils: {
+            omitReadonly: Handlebars.TemplateDelegate;
+        };
     };
     exports: {
         model: Handlebars.TemplateDelegate;
@@ -319,6 +324,9 @@ export const registerHandlebarTemplates = (config: Config, client: Client): Temp
             request: Handlebars.template(templateCoreRequest),
             settings: Handlebars.template(templateCoreSettings),
             types: Handlebars.template(templateCoreTypes),
+            utils: {
+                omitReadonly: Handlebars.template(omitReadonly),
+            },
         },
         exports: {
             model: Handlebars.template(templateExportModel),
@@ -358,6 +366,7 @@ export const registerHandlebarTemplates = (config: Config, client: Client): Temp
     Handlebars.registerPartial('typeIntersection', Handlebars.template(partialTypeIntersection));
     Handlebars.registerPartial('typeReference', Handlebars.template(partialTypeReference));
     Handlebars.registerPartial('typeUnion', Handlebars.template(partialTypeUnion));
+    Handlebars.registerPartial('typeWithOmitReadOnly', Handlebars.template(typeWithOmitReadOnly));
 
     // Generic functions used in 'request' file @see src/templates/core/request.hbs for more info
     Handlebars.registerPartial('functions/base64', Handlebars.template(functionBase64));
