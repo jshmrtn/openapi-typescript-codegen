@@ -1,13 +1,12 @@
 {
-    "name": "@nicolas-chaulet/openapi-typescript-codegen",
-    "version": "0.27.34",
-    "type": "module",
+    "name": "@jshmrtn/openapi-typescript-codegen",
+    "version": "0.23.0",
     "description": "Library that generates Typescript clients based on the OpenAPI specification.",
     "author": "Ferdi Koomen",
-    "homepage": "https://github.com/nicolas-chaulet/openapi-typescript-codegen/",
+    "homepage": "https://github.com/jshmrtn/openapi-typescript-codegen",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/nicolas-chaulet/openapi-typescript-codegen.git"
+        "url": "git+https://github.com/jshmrtn/openapi-typescript-codegen.git"
     },
     "bugs": {
         "url": "https://github.com/nicolas-chaulet/openapi-typescript-codegen/issues"
@@ -30,6 +29,10 @@
         {
             "name": "Ferdi Koomen",
             "email": "info@madebyferdi.com"
+        },
+        {
+            "name": "Jeremy Zahner",
+            "email": "zahner@joshmartin.ch"
         }
     ],
     "main": "./dist/node/index.js",
@@ -59,7 +62,11 @@
         "test:watch": "vitest --config vitest.config.unit.ts --watch",
         "test:e2e": "vitest run --config vitest.config.e2e.ts",
         "test:sample": "node test/sample.cjs",
-        "typecheck": "tsc --noEmit"
+        "typecheck": "tsc --noEmit",
+        "codecov": "codecov --token=66c30c23-8954-4892-bef9-fbaed0a2e42b",
+        "preversion": "npm run test && npm run eslint",
+        "version": "npm run prepublishOnly && git add CHANGELOG.md",
+        "postversion": "git push && git push --tags"
     },
     "engines": {
         "node": "^18.0.0 || >=20.0.0"

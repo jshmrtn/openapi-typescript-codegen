@@ -1,19 +1,24 @@
 # OpenAPI TypeScript Codegen
 
-> ✨ Turn your OpenAPI specification into a beautiful TypeScript client
+✨ Turn your OpenAPI specification into a beautiful TypeScript client
+
+This is a Fork of [openapi-typescript-codegen](https://www.npmjs.com/package/openapi-typescript-codegen) with the following changes:
+
+-   Merge of https://github.com/ferdikoomen/openapi-typescript-codegen/pull/1145
 
 ## Table of Contents
-- [Table of Contents](#table-of-contents)
-- [About](#about)
-- [Features](#features)
-- [Quick Start](#quick-start)
-- [Installation](#installation)
-- [Configuration](#configuration)
-  - [Formatting](#formatting)
-  - [Linting](#linting)
-  - [Enums](#enums)
-  - [Config API](#config-api)
-- [Contributing](#contributing)
+
+-   [Table of Contents](#table-of-contents)
+-   [About](#about)
+-   [Features](#features)
+-   [Quick Start](#quick-start)
+-   [Installation](#installation)
+-   [Configuration](#configuration)
+    -   [Formatting](#formatting)
+    -   [Linting](#linting)
+    -   [Enums](#enums)
+    -   [Config API](#config-api)
+-   [Contributing](#contributing)
 
 ## About
 
@@ -21,12 +26,12 @@ This is an opinionated fork of the [openapi-typescript-codegen](https://github.c
 
 ## Features
 
-- generate TypeScript clients from OpenAPI v2.0, v3.0, and v3.1 specifications
-- support JSON or YAML input files
-- handle external references using [JSON Schema $Ref Parser](https://github.com/APIDevTools/json-schema-ref-parser/)
-- generate Fetch, Node-Fetch, Axios, Angular, or XHR HTTP clients
-- can be used with CLI, Node.js, or npx
-- abortable requests through cancellable promise pattern
+-   generate TypeScript clients from OpenAPI v2.0, v3.0, and v3.1 specifications
+-   support JSON or YAML input files
+-   handle external references using [JSON Schema $Ref Parser](https://github.com/APIDevTools/json-schema-ref-parser/)
+-   generate Fetch, Node-Fetch, Axios, Angular, or XHR HTTP clients
+-   can be used with CLI, Node.js, or npx
+-   abortable requests through cancellable promise pattern
 
 ## Quick Start
 
@@ -61,12 +66,12 @@ If you want to use `openapi-ts` with CLI, add a script to your `package.json` fi
 You can also generate your client programmatically by importing `openapi-ts` in a `.ts` file.
 
 ```ts
-import { createClient } from '@nicolas-chaulet/openapi-typescript-codegen'
+import { createClient } from '@nicolas-chaulet/openapi-typescript-codegen';
 
 createClient({
-  input: 'path/to/openapi.json',
-  output: 'src/client',
-})
+    input: 'path/to/openapi.json',
+    output: 'src/client',
+});
 ```
 
 > ⚠️ You need to be running Node.js v18 or newer
@@ -80,9 +85,9 @@ createClient({
 ```js
 /** @type {import('@nicolas-chaulet/openapi-typescript-codegen').UserConfig} */
 export default {
-  input: 'path/to/openapi.json',
-  output: 'src/client',
-}
+    input: 'path/to/openapi.json',
+    output: 'src/client',
+};
 ```
 
 <!-- or `openapi-ts.config.ts`
@@ -104,10 +109,10 @@ By default, `openapi-ts` will automatically format your client according to your
 import { defineConfig } from '@nicolas-chaulet/openapi-typescript-codegen';
 
 export default defineConfig({
-  format: false,
-  input: 'path/to/openapi.json',
-  output: 'src/client',
-})
+    format: false,
+    input: 'path/to/openapi.json',
+    output: 'src/client',
+});
 ```
 
 You can also prevent your client from being processed by formatters by adding your output path to the tool's ignore file (e.g. `.prettierignore`).
@@ -120,10 +125,10 @@ For performance reasons, `openapi-ts` does not automatically lint your client. T
 import { defineConfig } from '@nicolas-chaulet/openapi-typescript-codegen';
 
 export default defineConfig({
-  input: 'path/to/openapi.json',
-  lint: true,
-  output: 'src/client',
-})
+    input: 'path/to/openapi.json',
+    lint: true,
+    output: 'src/client',
+});
 ```
 
 You can also prevent your client from being processed by linters by adding your output path to the tool's ignore file (e.g. `.eslintignore`).
@@ -136,18 +141,18 @@ We do not generate TypeScript [enums](https://www.typescriptlang.org/docs/handbo
 import { defineConfig } from '@nicolas-chaulet/openapi-typescript-codegen';
 
 export default defineConfig({
-  enums: true,
-  input: 'path/to/openapi.json',
-  output: 'src/client',
-})
+    enums: true,
+    input: 'path/to/openapi.json',
+    output: 'src/client',
+});
 ```
 
 This will export your enums as plain JavaScript objects. For example, `Foo` will generate the following
 
 ```ts
 export const FooEnum = {
-  FOO: 'foo',
-  BAR: 'bar',
+    FOO: 'foo',
+    BAR: 'bar',
 } as const;
 ```
 
