@@ -1,5 +1,11 @@
 # OpenAPI Typescript Codegen
 
+This is a Fork of [openapi-typescript-codegen](https://www.npmjs.com/package/openapi-typescript-codegen) with the following changes:
+
+- Merge of https://github.com/ferdikoomen/openapi-typescript-codegen/pull/1145
+
+---
+
 [![NPM][npm-image]][npm-url]
 [![License][license-image]][license-url]
 [![Coverage][coverage-image]][coverage-url]
