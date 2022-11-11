@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.24.0] - 2022-06-02
+### Fixed
+- Upgraded dependencies
+- Escape reserved keywords in schema names (https://github.com/ferdikoomen/openapi-typescript-codegen/pull/1192)
+- Fix pattern single quote escaping (https://github.com/ferdikoomen/openapi-typescript-codegen/pull/1275)
+- Fix undefined request body when body is a valid JSON falsy value: false or 0, "". (https://github.com/ferdikoomen/openapi-typescript-codegen/pull/1076)
+### Added
+- Add model postfix (https://github.com/ferdikoomen/openapi-typescript-codegen/pull/1141)
+- Support free-form objects (https://github.com/ferdikoomen/openapi-typescript-codegen/pull/1165)
+- Set default providedIn to root for angular client (https://github.com/ferdikoomen/openapi-typescript-codegen/pull/1250)
+- Add json support for application/problem+json content type (https://github.com/ferdikoomen/openapi-typescript-codegen/pull/1208)
+
 ## [0.23.0] - 2022-06-02
 ### Fixed
 - Upgraded dependencies
