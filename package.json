@@ -1,6 +1,7 @@
 {
     "name": "@jshmrtn/openapi-typescript-codegen",
     "version": "0.24.0",
+    "type": "module",
     "description": "Library that generates Typescript clients based on the OpenAPI specification.",
     "author": "Ferdi Koomen",
     "homepage": "https://github.com/jshmrtn/openapi-typescript-codegen",

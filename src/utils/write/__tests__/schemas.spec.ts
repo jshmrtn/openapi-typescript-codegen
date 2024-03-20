@@ -47,6 +47,9 @@ describe('writeClientSchemas', () => {
                 request: () => 'request',
                 settings: () => 'settings',
                 types: () => 'types',
+                utils: {
+                    omitReadonly: () => 'omitReadonly',
+                },
             },
             exports: {
                 model: () => 'model',

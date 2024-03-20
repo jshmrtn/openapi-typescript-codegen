@@ -22,6 +22,9 @@ describe('writeClientCore', () => {
                 request: () => 'request',
                 settings: vi.fn().mockReturnValue('settings'),
                 types: () => 'types',
+                utils: {
+                    omitReadonly: () => 'omitReadonly',
+                },
             },
             exports: {
                 model: () => 'model',
